@@ -34,7 +34,7 @@ function createServer(){
 
     // Use the common stuff you probably want
     //hard code the upload folder for now
-    server.use(restify.bodyParser({uploadDir:__dirname+'/../uploads/'}));
+    server.use(restify.bodyParser({uploadDir:__dirname+'/uploads/'}));
     server.use(restify.acceptParser(server.acceptable));
     server.use(restify.dateParser());
     server.use(restify.authorizationParser());
@@ -43,6 +43,13 @@ function createServer(){
 
     var STATIS_FILE_RE = /\.(css|js|jpe?g|png|gif|less|eot|svg|bmp|tiff|ttf|otf|woff|pdf|ico|json|wav|ogg|mp3?|xml)$/i;
 
+    server.post({path:'/api/importFile',contentType:'multipart/form-data'}, inputcsvfile.importFile);
+
+    server.get(/.*/, restify.serveStatic({
+        directory:'./src',
+        default: 'index.html',
+        maxAge: 0
+    }));
     
     server.on('NotFound', function (req, res, next) {
         console.log("not found error");

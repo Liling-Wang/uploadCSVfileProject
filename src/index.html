@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="customer" ng-controller="homeController">
+<head>
+    <meta charset="UTF-8">
+    <title>ShoppingShopping</title>
+    <link rel="stylesheet" href="public/web/assets/bootstrap/css/bootstrap.min.css">
+
+</head>
+<body>
+<div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">csv文档上传</h4>
+        </div>
+        <div>
+            <form  name="form" class="form-horizontal" id="uploadCSVForm"  style="width: 96%;margin-left: 30px;">
+                <div class="form-group" style="width: 95%">
+                    <div class="form-group" style="margin-top: 10px;">
+
+                        <div class="col-md-4">
+                            <input type="file" name="csv_file" id="input_file" file-reader="fileContent"/><br>
+
+                            <button type="submit" class="btn btn-sm btn-success" ng-click="csvFilesSubmit()" style="margin-left: 10px;">&nbsp;上&nbsp;传&nbsp;</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <check-dialog></check-dialog>
+</div>
+
+<script src="public/web/lib/angular-1.4.3/angular.js"></script>
+<script src="public/web/lib/angular-1.4.3/angular-route.min.js"></script>
+<script src="public/web/lib/jquery.min.js"></script>
+<script src="public/web/lib/jquery.form.js"></script>
+<script src="public/web/lib/jquery.cookie.min.js"></script>
+
+<script src="public/web/customer_module.js"></script>
+<script src="public/web/customer/home_controller.js"></script>
+
+<script src="public/web/service.js"></script>
+
+
+</body>
+</html>
